@@ -20,6 +20,7 @@ public class ListNode {
 
     public void addTail(ListNode item){
         ListNode tail = null;
+        //找到最后一个节点
         while (this.next != null){
             tail = this.next;
         }
