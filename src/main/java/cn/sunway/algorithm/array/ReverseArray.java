@@ -28,5 +28,8 @@ public class ReverseArray {
 
     public static void main(String[] args) {
         reverse(new int[]{1,2,3,4,5,6,7});
+        reverse(new int[]{1,2,3,4,5,6,7,8});
+        reverse(new int[]{1});
+        reverse(null);
     }
 }
