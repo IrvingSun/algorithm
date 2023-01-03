@@ -6,3 +6,4 @@
 .idea/workspace.xml
 algorithm.iml
 out/production/algorithm/cn/sunway/algorithm/Test.class
+*.class
