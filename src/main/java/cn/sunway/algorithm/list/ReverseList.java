@@ -26,6 +26,21 @@ public class ReverseList {
         return tail;
     }
 
+    public static ListNode reverse2(ListNode head, ListNode tail, ListNode terminal){
+        ListNode cur = head;
+        ListNode pre = null;
+
+        while (cur != terminal){
+            ListNode next = cur.next; //留存当前节点的 下个节点的记录
+            cur.next = pre;//将当前节点的next指向上个节点
+
+            pre = cur; //将pre节点往前挪
+            cur = next;//将当前节点往前挪
+        }
+
+        return tail;
+    }
+
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -39,7 +54,8 @@ public class ReverseList {
         node1.addTail(node5);
 
         System.out.println(node1);
-        System.out.println(reverse(node1, node5));
+//        System.out.println(reverse(node1, node5));
+        System.out.println(reverse2(node1, node5, null));
     }
 
 }
