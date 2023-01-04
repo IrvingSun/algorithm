@@ -7,8 +7,8 @@ package cn.sunway.structure;
  * @date 2022/12/30
  */
 public class ListNode {
-    private int data;
-    private ListNode next;
+    public int data;
+    public ListNode next;
 
     public ListNode() {
     }
@@ -18,25 +18,29 @@ public class ListNode {
         data = t;
     }
 
+    public ListNode getNext() {
+        return next;
+    }
+
     public void addTail(ListNode item){
         ListNode tail = this;
         //找到最后一个节点
-        while (this.next != null){
-            tail = this.next;
+        while (tail.next != null){
+            tail = tail.next;
         }
         tail.next = item;
     }
 
     @Override
     public String toString() {
-        String str = "["+this.data+"]";
-        ListNode current = this;
-        while(current.next!=null){
-            str += " --> [" + this.next.data +"]";
-            current = this.next;
+        StringBuilder str = new StringBuilder("[" + this.data + "]");
+        ListNode current = this.next;
+        while(current !=null){
+            str.append(" --> [").append(current.data).append("]");
+            current = current.next;
         }
-        str += " -->NULL";
-        return str;
+        str.append(" -->NULL");
+        return str.toString();
     }
 
     public static void main(String[] args) {
