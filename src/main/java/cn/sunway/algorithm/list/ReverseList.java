@@ -8,6 +8,12 @@ import cn.sunway.structure.ListNode;
  */
 public class ReverseList {
 
+    /**
+     * 提供首尾节点  将链表首尾节点之间的节点反转
+     * @param head
+     * @param tail
+     * @return
+     */
     public static ListNode reverse(ListNode head, ListNode tail){
         ListNode cur = head;
         ListNode pre = null;
@@ -26,6 +32,14 @@ public class ReverseList {
         return tail;
     }
 
+    /**
+     * 提供首尾节点，以及结尾节点 反转链表
+     *
+     * @param head
+     * @param tail
+     * @param terminal
+     * @return
+     */
     public static ListNode reverse2(ListNode head, ListNode tail, ListNode terminal){
         ListNode cur = head;
         ListNode pre = null;
@@ -39,6 +53,30 @@ public class ReverseList {
         }
 
         return tail;
+    }
+
+    /**
+     * 提供首节点，反转链表
+     *
+     * @param head
+     * @return
+     */
+    public static ListNode reverse3(ListNode head){
+        ListNode pre = null;
+        ListNode cur = head;
+
+        while(cur != null){
+            //保存现场
+            ListNode next = cur.next;
+
+            //设置当前节点的指针
+            cur.next = pre;
+
+            //挪动遍历节点
+            pre = cur;
+            cur = next;
+        }
+        return pre;//遍历的最后一个非null节点
     }
 
 
@@ -55,7 +93,8 @@ public class ReverseList {
 
         System.out.println(node1);
 //        System.out.println(reverse(node1, node5));
-        System.out.println(reverse2(node1, node5, null));
+//        System.out.println(reverse2(node1, node5, null));
+        System.out.println(reverse3(node1));
     }
 
 }
