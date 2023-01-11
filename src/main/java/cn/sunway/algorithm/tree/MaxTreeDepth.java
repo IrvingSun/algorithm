@@ -2,6 +2,8 @@ package cn.sunway.algorithm.tree;
 
 import cn.sunway.structure.TreeNode;
 
+import java.util.LinkedList;
+
 /**
  * 计算树的最大深度
  * @author sunw
@@ -11,6 +13,7 @@ public class MaxTreeDepth {
 
     /**
      * 使用递归的方式
+     * 深度优先 DFS
      * @param root
      * @return
      */
@@ -23,6 +26,40 @@ public class MaxTreeDepth {
             return 1 + Math.max(maxDepth(root.right), maxDepth(root.left));
         }
         return 1;
+    }
+
+
+    /**
+     * 广度优先方式遍历，一层一层遍历，直至遍历到最后一层
+     * @param root
+     * @return
+     */
+    public static int bfs(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int level = 0;
+        LinkedList<TreeNode> list = new LinkedList<>();
+        list.offer(root);
+
+        while (!list.isEmpty()) {
+            int size = list.size(); // 记录当前列表大小
+            //当size被耗尽，则进入下一轮(其实当前列表中的数据可能大于0)
+            while (size > 0) {
+                TreeNode treeNode = list.pop();
+                size--;
+                if (treeNode != null) {
+                    if (treeNode.left != null) {
+                        list.offer(treeNode.left);
+                    }
+                    if (treeNode.right != null) {
+                        list.offer(treeNode.right);
+                    }
+                }
+            }
+            level++;
+        }
+        return level;
     }
 
     public static void main(String[] args) {
@@ -44,6 +81,7 @@ public class MaxTreeDepth {
         root.right = right1;
 
         System.out.println(maxDepth(root));
+        System.out.println(bfs(root));
     }
 
 }
