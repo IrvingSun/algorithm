@@ -7,3 +7,4 @@
 algorithm.iml
 out/production/algorithm/cn/sunway/algorithm/Test.class
 *.class
+.idea/uiDesigner.xml
