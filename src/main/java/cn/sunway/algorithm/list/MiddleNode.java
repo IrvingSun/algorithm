@@ -30,10 +30,10 @@ public class MiddleNode {
                 fast = fast.next;
             }
             if(fast == null){
-                return slow;
+                return slow;//奇数长度的中间位置
             }
         }
-        return slow.next;
+        return slow.next;//偶数长度的中间位置
     }
 
     public static void main(String[] args) {
