@@ -1,4 +1,4 @@
-package cn.sunway.algorithm.array;
+package cn.sunway.algorithm.dp;
 
 /**
  * @author sunw
