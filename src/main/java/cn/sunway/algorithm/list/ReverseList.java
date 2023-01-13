@@ -80,6 +80,35 @@ public class ReverseList {
     }
 
 
+    /**
+     * 递归方式
+     * @param head
+     * @return
+     */
+    public static ListNode loopReverse(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode temp = loopReverse(head.next); //假设下个节点已经反转完
+        /**
+         * head
+         * |
+         * 1 -> 2 -> 3 -> 4 -> 5
+         *
+         * 1 -> 2 <- 3 <- 4 <- 5 <- temp
+         *
+         * 此时只需要设置节点2的指针
+         * null <- 1 <- 2 <- 3 <- 4 <- 5 <- temp
+         * 
+         */
+        ListNode t1 = head.next;
+        t1.next = head;
+        head.next = null;
+        return temp;
+    }
+
+
+
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
@@ -94,7 +123,8 @@ public class ReverseList {
         System.out.println(node1);
 //        System.out.println(reverse(node1, node5));
 //        System.out.println(reverse2(node1, node5, null));
-        System.out.println(reverse3(node1));
+//        System.out.println(reverse3(node1));
+        System.out.println(loopReverse(node1));
     }
 
 }
