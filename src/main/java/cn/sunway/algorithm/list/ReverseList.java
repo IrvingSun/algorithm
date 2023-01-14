@@ -99,7 +99,7 @@ public class ReverseList {
          *
          * 此时只需要设置节点2的指针
          * null <- 1 <- 2 <- 3 <- 4 <- 5 <- temp
-         * 
+         *
          */
         ListNode t1 = head.next;
         t1.next = head;
