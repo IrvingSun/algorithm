@@ -3,19 +3,28 @@ package cn.sunway.algorithm.tree;
 import cn.sunway.structure.TreeNode;
 
 /**
+ * 翻转二叉树
  * @author sunw
  * @date 2023/1/14
  */
 public class InvertTree {
 
+    /**
+     * 使用递归的方式修改二叉树
+     * @param root
+     * @return
+     */
     private static TreeNode invertTree(TreeNode root){
+        //如果到了尾结点，则
         if(root == null){
             return null;
         }
+        //交换root的左右两个节点
         TreeNode temp = root.right;
         root.right = root.left;
         root.left = temp;
 
+        //递归交换
         invertTree(root.left);
         invertTree(root.right);
 
