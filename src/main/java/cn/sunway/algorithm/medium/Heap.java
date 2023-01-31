@@ -32,35 +32,39 @@ public class Heap {
         int index = heap.length / 2 - 1;
 
         for (int cur = index; cur >= 0; cur--) {
-//            if(!(heap[cur] >= heap[2*cur + 1])){
-//                int temp = heap[2*cur + 1];
-//                heap[2*cur + 1] = heap[cur];
-//                heap[cur] = temp;
-//            }
-//            if(!(heap[cur] >= heap[2*cur + 2])){
-//                int temp = heap[2*cur + 2];
-//                heap[2*cur + 2] = heap[cur];
-//                heap[cur] = temp;
-//            }
             adjustDownToUp(heap, cur);
             System.out.println("-->" + Arrays.toString(heap));
         }
     }
 
+    /**
+     * 调整非叶子节点和其子节点的位置
+     * 每次调整，都会兼顾当前非叶子节点的 所有的子节点
+     * @param heap
+     * @param index
+     */
     private static void adjustDownToUp(int[] heap, int index) {
-        int temp = heap[index];
+        int temp = heap[index];//当前非叶子节点的值
 
+        //找到叶子节点的左子节点，一直往下找其左节点
         for (int i = 2 * index + 1; i < heap.length; i = 2 * i + 1) {
+            //如果左子节点小于右子节点，判断其右节点
             if (i < heap.length - 1 && heap[i] < heap[i + 1]) {
                 i++;
             }
+            //此时，子节点中最大的值的下标为i
+            //如果当前非叶子节点不小于叶子节点的值，则继续往下
             if (temp >= heap[i]) {
                 break;
             } else {
+                //如果当前非叶子节点的值小于叶子节点的值
+                //将当非叶子节点的值设置为叶子节点的值，
+                //将指针往后挪动
                 heap[index] = heap[i];
                 index = i;
             }
         }
+        //将当前非叶子节点的值，设置到对应的位置上
         heap[index] = temp;
     }
 
