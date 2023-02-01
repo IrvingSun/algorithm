@@ -7,7 +7,7 @@ package cn.sunway.algorithm.dp;
 public class MaxArrayValue {
 
     /**
-     * 动态规划
+     * 动态规划  看之前的结果对本次相加是否有增益效果
      * 如果前面的结果之和大于0，则本次的计算 = 当前值 + 前面的值
      * 如果前面的结果之和小于0，则本次的计算 = 当前值
      * 每次计算完毕，重新选出最大值
@@ -32,6 +32,7 @@ public class MaxArrayValue {
     public static void main(String[] args) {
         System.out.println(maxValue(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
         System.out.println(maxValue(new int[]{5, 4, -1, 7, 8}));
+        System.out.println(maxValue(new int[]{-5, -4, 1, -7, -8}));
     }
 }
 
