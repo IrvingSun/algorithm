@@ -38,8 +38,25 @@ public class Heap {
     }
 
     /**
+     * 小顶堆：每个节点都小于等于子节点的值
+     *
+     * @param heap
+     */
+    private static void minHeap(int[] heap) {
+        if (heap == null || heap.length <= 1) {
+            return;
+        }
+        //在数组中找到完全二叉树最后一个非叶子节点
+        int index = heap.length / 2 - 1;
+        for(int cur = index; cur >=0; cur --){
+            adjustUpToDown(heap, cur);
+        }
+    }
+
+    /**
      * 调整非叶子节点和其子节点的位置
      * 每次调整，都会兼顾当前非叶子节点的 所有的子节点
+     *
      * @param heap
      * @param index
      */
@@ -68,10 +85,39 @@ public class Heap {
         heap[index] = temp;
     }
 
+    /**
+     * 调整非叶子节点和其子节点的位置
+     * 每次调整，都会兼顾当前非叶子节点的 所有的子节点
+     *
+     * @param heap
+     * @param index
+     */
+    private static void adjustUpToDown(int[] heap, int index) {
+        int temp = heap[index]; //暂存 当前非叶子节点的值
+
+        for (int i = 2 * index + 1; i < heap.length; i = 2 * i + 1) {
+            //选出子节点中较小的一个(如果存在的话)
+            if (i < heap.length - 1 && heap[i] > heap[i + 1]) {
+                i++;
+            }
+            //如果当前节点的值小于子节点中较小的值，那就表示这个节点不需要调整
+            if (temp <= heap[i]) {
+                break;
+            } else {
+                //如果大当前节点的值大于较小的值，则将较小的值提到当前节点
+                heap[index] = heap[i];
+                index = i;
+            }
+        }
+        heap[index] = temp;
+    }
+
     public static void main(String[] args) {
         int[] heap = new int[]{1, 2, 3, 4, 5, 6, 7};
         System.out.println(Arrays.toString(heap));
         maxHeap(heap);
+        System.out.println(Arrays.toString(heap));
+        minHeap(heap);
         System.out.println(Arrays.toString(heap));
     }
 
