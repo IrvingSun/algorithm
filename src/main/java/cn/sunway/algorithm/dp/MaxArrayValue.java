@@ -29,10 +29,34 @@ public class MaxArrayValue {
         return result;
     }
 
+
+    /**
+     * f(x) = x
+     * f(x) = max(f(x-1) , 0 ) + x
+     *
+     * @param nums
+     * @return
+     */
+    static  int dp(int nums[]){
+        int[] dp = new int[nums.length];
+        int max = 0;
+        dp[0] = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            dp[i] = Math.max(dp[i-1] , 0 ) + nums[i];
+            max = Math.max(dp[i], max);
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
         System.out.println(maxValue(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        System.out.println(dp(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+
         System.out.println(maxValue(new int[]{5, 4, -1, 7, 8}));
+        System.out.println(dp(new int[]{5, 4, -1, 7, 8}));
+
         System.out.println(maxValue(new int[]{-5, -4, 1, -7, -8}));
+        System.out.println(dp(new int[]{-5, -4, 1, -7, -8}));
     }
 }
 
