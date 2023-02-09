@@ -16,6 +16,8 @@ public class PartitionList {
 
     /**
      * 使用两个链表，一个存储小于X，一个存储大于等于X，而后合并
+     * 注意虚拟节点的使用，
+     * 注意max的尾结点的处理
      * @param head
      * @return
      */
