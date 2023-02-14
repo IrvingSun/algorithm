@@ -2,8 +2,6 @@ package cn.sunway.algorithm.list;
 
 import cn.sunway.structure.ListNode;
 
-import java.util.List;
-
 /**
  * 使用插入法对链表进行排序
  * @author sunw
