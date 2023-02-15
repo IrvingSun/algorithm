@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class MoveZeroes {
 
     /**
+     * 将0往后移动
      * 定义读写指针
      * 读指针不断往后移动，
      * 在遇到读指针不为0的情况，将值设置给写指针，并且将写指针往后移动
