@@ -9,6 +9,8 @@ import cn.sunway.structure.ListNode;
  *
  * 1->3->5->2->4
  *
+ * 使用奇偶指针，交替往后移动，最后将奇链表指针指向偶链表的头部
+ * 指针操作，返回原链表
  *
  * @author sunw
  * @date 2023/2/22
