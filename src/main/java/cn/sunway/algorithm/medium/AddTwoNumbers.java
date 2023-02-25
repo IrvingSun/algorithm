@@ -3,6 +3,7 @@ package cn.sunway.algorithm.medium;
 import cn.sunway.structure.ListNode;
 
 /**
+ * 数字最高位 位于链表尾部
  * 输入：l1 = [2,4,3], l2 = [5,6,4]
  * 输出：[7,0,8]
  * 解释：342 + 465 = 807
