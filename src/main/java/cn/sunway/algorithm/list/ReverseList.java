@@ -108,6 +108,23 @@ public class ReverseList {
     }
 
 
+    private static ListNode revert4(ListNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode dummy = null;
+        ListNode temp ;//保存现场
+        //往后移动
+        while(head != null){
+            temp = head.next;//将现场暂存
+            head.next = dummy;//将当前节点的next赋值到上一次循环处理过的dummy上
+            dummy = head;//将dummy往前移动
+            head = temp;//将保存的现场恢复
+        }
+        return dummy;
+    }
+
+
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -124,7 +141,8 @@ public class ReverseList {
 //        System.out.println(reverse(node1, node5));
 //        System.out.println(reverse2(node1, node5, null));
 //        System.out.println(reverse3(node1));
-        System.out.println(loopReverse(node1));
+//        System.out.println(loopReverse(node1));
+        System.out.println(revert4(node1));
     }
 
 }
