@@ -5,6 +5,8 @@ import java.util.Map;
 
 /**
  * 最长非重复子串
+ * 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+ * 子串 ≠ 子序列
  * @author sunw
  * @date 2023/2/1
  */
@@ -28,7 +30,10 @@ public class LengthOfLongestSubstring {
             //【滑动窗口左边位置变动的触发条件】如果已经包含了当前的字符
             if(record.containsKey(currentChar)){
                 //重新计算窗口左边的位置
+                System.out.println(leftSide + " - " + (record.get(currentChar) + 1));
+                //可能会出现record.get(currentChar) + 1 比leftSide还小的情况，例如：abba这种字符串
                 leftSide = Math.max(leftSide, record.get(currentChar) + 1);
+//                leftSide = record.get(currentChar) + 1;
             }
             //记录当前字符最新的位置
             record.put(currentChar, i);
@@ -39,6 +44,7 @@ public class LengthOfLongestSubstring {
     }
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("abcabcbb"));
+//        System.out.println(lengthOfLongestSubstring("abcabcdbb"));
+        System.out.println(lengthOfLongestSubstring("abbba"));
     }
 }
