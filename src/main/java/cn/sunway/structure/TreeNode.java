@@ -20,4 +20,12 @@ public class TreeNode {
         this.left = left;
         this.right = right;
     }
+
+    @Override
+    public String toString() {
+        if (left == null && right == null) {
+            return String.format("[ %d ]", val);
+        }
+        return String.format("[ %d : %s, %s]", val, left, right);
+    }
 }
