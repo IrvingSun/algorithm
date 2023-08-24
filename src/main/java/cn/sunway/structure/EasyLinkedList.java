@@ -10,8 +10,6 @@ public class EasyLinkedList {
 
     private Node last;
 
-    private int size = 0;
-
     /**
      * 往队列头部添加
      * @param item
@@ -31,7 +29,6 @@ public class EasyLinkedList {
             temp.pre = node;
         }
 
-        size++;
     }
 
     /**
@@ -53,7 +50,6 @@ public class EasyLinkedList {
             temp.next = node;
             node.pre = temp;
         }
-        size++;
     }
 
     @Override
