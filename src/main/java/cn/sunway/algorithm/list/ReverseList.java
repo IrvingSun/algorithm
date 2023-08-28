@@ -142,7 +142,7 @@ public class ReverseList {
 //        System.out.println(reverse2(node1, node5, null));
 //        System.out.println(reverse3(node1));
 //        System.out.println(loopReverse(node1));
-        System.out.println(revert4(node1));
+        System.out.println(reverse3(node1));
     }
 
 }

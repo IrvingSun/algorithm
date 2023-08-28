@@ -47,6 +47,7 @@ public class MergeTwoList {
      * @param list2
      * @return
      */
+    @Deprecated
     static ListNode merge2(ListNode list1, ListNode list2){
         if(list1 == null){
             return list2;
@@ -57,6 +58,31 @@ public class MergeTwoList {
             return list1;
         }else{
             list2.next = merge2(list1, list2.next);
+            return list2;
+        }
+    }
+
+
+    /**
+     * 递归合并
+     * @param list1
+     * @param list2
+     * @return
+     */
+    static ListNode merge3(ListNode list1, ListNode list2){
+        if(list1 == null) return list2;
+        if(list2 == null) return list1;
+
+        /**
+         *  如果list1当前值小于list2当前值，那么list1当前节点被选为合并节点
+         *  它指向下一次合并的结果，(list1节点的下个节点，list2当前节点继续比较)
+         */
+        if(list1.data < list2.data) {
+            list1.next = merge3(list1.next, list2);
+            return list1;
+        }
+        else {
+            list2.next = merge3(list1, list2.next);
             return list2;
         }
     }
@@ -75,6 +101,6 @@ public class MergeTwoList {
         node3.addTail(node6);
 
 //        System.out.println(merge(node1, node3));
-        System.out.println(merge2(node1, node3));
+        System.out.println(merge3(node1, node3));
     }
 }
