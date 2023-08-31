@@ -62,6 +62,24 @@ public class DeleteDuplicatedItem {
         return temp.next;
     }
 
+    static ListNode unique(ListNode head){
+        if(head == null){
+            return null;
+        }
+        ListNode slow = head;
+        ListNode fast= head;
+
+        while(fast != null){
+            if(slow.data != fast.data){
+                slow = slow.next;
+                slow.data = fast.data;
+            }
+            fast = fast.next;
+        }
+        slow.next = null;
+        return head;
+    }
+
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(1);
@@ -81,5 +99,6 @@ public class DeleteDuplicatedItem {
         node1.addTail(node7);
         System.out.println(node1);
         System.out.println(deleteDuplicated2(node1));
+        System.out.println(unique(node1));
     }
 }
