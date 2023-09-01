@@ -39,7 +39,7 @@ public class DeleteDuplicatedItem {
     }
 
     /**
-     * 返回unique素组
+     * 返回unique数组
      *
      * @param nums
      * @return
