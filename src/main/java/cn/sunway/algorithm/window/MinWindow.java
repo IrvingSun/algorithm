@@ -11,7 +11,7 @@ package cn.sunway.algorithm.window;
 public class MinWindow {
 
     /**
-     * 使用滑动窗口
+     * 使用滑动窗口     如果字符串长度过长，LeetCode 将超时
      *
      * @param s
      * @param t
