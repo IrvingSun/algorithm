@@ -10,7 +10,8 @@ import cn.sunway.structure.TreeNode;
 public class InvertTree {
 
     /**
-     * 使用递归的方式修改二叉树
+     * 从根节点开始，自上而下地遍历树节点,交换左右
+     * 使用遍历的方式修改二叉树
      * @param root
      * @return
      */
@@ -24,7 +25,7 @@ public class InvertTree {
         root.right = root.left;
         root.left = temp;
 
-        //递归交换
+        //遍历交换
         invertTree(root.left);
         invertTree(root.right);
 

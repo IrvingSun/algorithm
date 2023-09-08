@@ -7,6 +7,7 @@ public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
+    public TreeNode next;//指向下一个节点
 
     public TreeNode() {
     }
