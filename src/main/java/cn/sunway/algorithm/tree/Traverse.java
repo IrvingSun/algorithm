@@ -1,6 +1,7 @@
 package cn.sunway.algorithm.tree;
 
 import cn.sunway.structure.TreeNode;
+import cn.sunway.structure.TreeToMarkdown;
 
 /**
  * @author sunw
@@ -61,6 +62,8 @@ public class Traverse {
         root.right = right1;
 
         System.out.println(root);
+
+        TreeToMarkdown.treePrint(root);
 
         new Traverse().printLevel(root, 1);
         System.out.println(" =======");
