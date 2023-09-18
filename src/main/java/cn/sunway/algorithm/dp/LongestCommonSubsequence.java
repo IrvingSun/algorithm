@@ -1,7 +1,7 @@
 package cn.sunway.algorithm.dp;
 
 /**
- * 最长公共非连续子序列
+ * 最长 公共 非连续子序列
  * @author sunw
  * @date 2023/2/6
  */
@@ -41,6 +41,6 @@ public class LongestCommonSubsequence {
 
 
     public static void main(String[] args) {
-        System.out.println(longestCommonSubsequence("abcd","bd"));
+        System.out.println(longestCommonSubsequence("abcd","abd"));
     }
 }
