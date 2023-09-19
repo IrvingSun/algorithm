@@ -12,7 +12,6 @@ public class AsymmetricEncryptionExample {
             // 生成RSA密钥对，或者从其他地方获取已有的公钥和私钥
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
             keyPairGenerator.initialize(2048);
-            keyPairGenerator.initialize(1, new SecureRandom());
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
             PublicKey publicKey = keyPair.getPublic();
             PrivateKey privateKey = keyPair.getPrivate();
