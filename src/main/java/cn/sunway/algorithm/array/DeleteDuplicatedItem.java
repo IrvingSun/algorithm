@@ -3,6 +3,7 @@ package cn.sunway.algorithm.array;
 import java.util.Arrays;
 
 /**
+ * 针对已排序的数组
  * 删除数据中的重复元素，返回最新数组的长度
  *
  * @author sunw
