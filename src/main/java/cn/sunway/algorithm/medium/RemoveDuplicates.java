@@ -16,7 +16,7 @@ public class RemoveDuplicates {
      * 指针
      * 按照题目的要求 指针index指向的值，不能等于index-2的值
      * 如果相等，则需要暂停index的移动
-     *
+     *  0, 0, 1, 1, 1, 1, 2, 3, 3
      * @param nums
      * @return
      */
