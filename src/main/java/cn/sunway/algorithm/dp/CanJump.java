@@ -35,8 +35,34 @@ public class CanJump {
     }
 
 
+    /**
+     * 计算到达末端的少步数
+     * 意思就是说最少多少步，能走完
+     * 每次确定最远距离，就相当于走了最优的一步
+     * @param nums
+     * @return
+     */
+    public int jump(int[] nums) {
+        int leftSide = 0;
+        int maxPos = 0;
+        int steps = 0;
+        for(int i = 0; i <nums.length-1; i++){
+            maxPos = Math.max(maxPos, nums[i] + i);
+            if(i == leftSide){ //已经遍历到了当前区间的最右边，也就是下一个区间的最左边。
+                leftSide = maxPos;//这个leftSide，就等于该区间内能到达的最远的地方了
+                steps++;
+            }
+        }
+        return steps;
+    }
+
+
     public static void main(String[] args) {
         System.out.println(new CanJump().canJump(new int[]{2,3,1,1,4}));
+        System.out.println(new CanJump().jump(new int[]{2,3,1,1,4}));
         System.out.println(new CanJump().canJump(new int[]{3,2,1,0,4}));
+        System.out.println(new CanJump().jump(new int[]{3,2,1,0,4}));
+        System.out.println(new CanJump().jump(new int[]{0}));
+        System.out.println(new CanJump().jump(new int[]{1,2,1,1,1}));
     }
 }
